@@ -6,7 +6,7 @@
 /*   By: bwebb <bwebb@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/31 14:08:53 by bwebb             #+#    #+#             */
-/*   Updated: 2019/07/31 16:14:31 by bwebb            ###   ########.fr       */
+/*   Updated: 2019/07/31 16:19:45 by bwebb            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int main(int ac, char **av)
         while (++k <= i)
             if (ispal(av[1], i - k, j - k))
             {
-                write(1, av[1] + i - k, j - k + 1);
+                write(1, av[1] + i - k, j - i + 1);
                 write(1, "\n", 1);
                 return (0);   
             }
