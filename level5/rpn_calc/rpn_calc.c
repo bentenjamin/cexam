@@ -44,25 +44,16 @@ int	rpn(char *s)
 	while (s[i])
 	{
 		if (!isop(s[i]) && !ispace(s[i]) && !isnum(s[i]))//check invalid input
-		{
-			printf("Error\n");
 			return (0);
-		}
 		if (isop(s[i]))//check if we have an operator
 		{
 			if (!(s[i] == '-' && isnum(s[i + 1])))//checks if we have a negative number or operator
 			{
 				if (stk[0] < 2)//if theres only 1 num on stackwe cant do an operation
-				{
-					printf("Error\n");
 					return (0);
-				}
 				stk[0]--;//pop the stack since we "deleting" 2 and "adding" 1 to the stack
 				if ((s[i] == '/' || s[i] == '%') && stk[stk[0] + 1] == 0)//testing for /or% by zero cause thats not a thing
-				{
-					printf("Error\n");
 					return (0);
-				}
 				stk[stk[0]] = op(stk[stk[0]], stk[stk[0] + 1], s[i]);//finally after all that error checking do the operation on the top 2 nums on the stack with the number lower on the stack being before the operator
 			}
 			i++;
@@ -80,21 +71,14 @@ int	rpn(char *s)
 			i++;
 	}
 		if (stk[0] != 1)//there should only be 1 number in the stack after a good string
-	{
-		printf("Error\n");
-		return (0);
-	}
+			return (0);
 }
 
 int	main(int ac, char **av)
 {
 	int i;
-	if (ac != 2)//ensure only 1 arguement
-	{
-		printf("Error\n");
-		return (0);
-	}
-	i = rpn(av[1]);
+	
+	i = (ac != 2) ? 0 : rpn(av[1]);
 	(i) ? printf("Error\n") : printf("%i\n", i);//newline for graphical goodness
 	return (0);
 }
