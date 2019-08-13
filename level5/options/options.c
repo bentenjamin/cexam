@@ -6,7 +6,7 @@
 /*   By: bwebb <bwebb@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/06 13:18:58 by bwebb             #+#    #+#             */
-/*   Updated: 2019/08/06 14:15:15 by bwebb            ###   ########.fr       */
+/*   Updated: 2019/08/13 13:27:13 by bwebb            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,15 @@ int main(int ac, char **av)
     int i;
     int j;//counters
 
-    i = 1;//skip out prog name
+    i = 0;
     j = 0;
     while (j < 26)
         abc[j++] = '0';//initialise the array
-    while (av[i])//check all arguements. doesnt loop if there arent any
-    {
-        j = 0;
+    while (av[++i])//check all arguements and skip prog name. doesnt loop if there arent any
         if (av[i][0] == '-')//check if its a flag arguement else ignore and keep looping
+        {
+            j = 0;
             while (av[i][++j])//loop through arg string
-            {
                 if (av[i][j] >= 'a' && av[i][j] <= 'z')//check if its a letter
                     abc[av[i][j] - 'a'] = '1';//set representative char in array to 1
                 else
@@ -35,9 +34,7 @@ int main(int ac, char **av)
                     write(1, "Invalid Option\n", 15);//error exit if its not a letter
                     return (0);
                 }
-            }
-        i++;    
-    }
+        }
     if (ac < 2 || (abc['h' - 'a'] == '1'))//check if there are args or if the -h for "help" was used
     {
         write(1, "options: abcdefghijklmnopqrstuvwxyz\n", 36);

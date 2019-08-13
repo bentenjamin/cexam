@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   rpn_calc.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: bwebb <bwebb@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/08/13 13:26:27 by bwebb             #+#    #+#             */
+/*   Updated: 2019/08/13 13:27:12 by bwebb            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "stdlib.h"
 #include "stdio.h"
 #include "unistd.h"
@@ -70,8 +82,8 @@ int	rpn(char *s)
 		if (ispace(s[i]))//skip over spaces
 			i++;
 	}
-		if (stk[0] != 1)//there should only be 1 number in the stack after a good string
-			return (0);
+	if (stk[0] != 1)//there should only be 1 number in the stack after a good string
+		return (0);
 }
 
 int	main(int ac, char **av)
