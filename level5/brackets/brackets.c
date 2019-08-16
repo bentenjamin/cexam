@@ -10,6 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <unistd.h>
+
 int brack(char *s)
 {
     int stk[100];                                                                                                                   //our stack for pushing and popping
