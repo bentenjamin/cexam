@@ -31,13 +31,11 @@ int main(int ac, char **av)
         write(1, "\n", 1);
         return (0);
     }
-    if (av[1][1] == '\0')//test 1 letter
-        write(1, av[1], 1);
     offset = 0;
     strsize = 0;
     while (av[1][strsize + 1])
         strsize++;
-    while (offset < strsize)//ensures the bracket size will always be at least 2
+    while (offset <= strsize)//ensures the bracket size will always be at least 2
     {
         count = -1;//count goes between 0 and offset to move the checking size(strsize - offset) from the end to the beginning
         while (++count <= offset)//finds the largest pallindrone starting from the back
@@ -49,6 +47,5 @@ int main(int ac, char **av)
             }
         offset++;
     }
-    write(1, "\n", 1);
     return (0);
 }

@@ -84,13 +84,15 @@ int	rpn(char *s)
 	}
 	if (stk[0] != 1)//there should only be 1 number in the stack after a good string
 		return (0);
+	printf("%i", i);
+	return (1);
 }
 
 int	main(int ac, char **av)
 {
 	int i;
 	
-	i = (ac != 2) ? 0 : rpn(av[1]);
-	(i) ? printf("Error\n") : printf("%i\n", i);//newline for graphical goodness
+	i = (ac == 2) ? rpn(av[1]) : 0;
+	(i) ? printf("Error\n") : printf("\n");//newline for graphical goodness
 	return (0);
 }
