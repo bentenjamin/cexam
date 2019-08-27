@@ -90,9 +90,6 @@ int	rpn(char *s)
 
 int	main(int ac, char **av)
 {
-	int i;
-	
-	i = (ac == 2) ? rpn(av[1]) : 0;
-	(i) ? printf("Error\n") : printf("\n");//newline for graphical goodness
+	printf(((ac == 2) && rpn(av[1])) ? "\n" : "Error\n");//newline for graphical goodness
 	return (0);
 }
