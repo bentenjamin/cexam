@@ -14,7 +14,7 @@
 
 int main(int ac, char **av)
 {
-    char abc[25];//array to store boolean of the corresponding letter=index
+    char abc[26];//array to store boolean of the corresponding letter=index
     int i;
     int j;//counters
 
