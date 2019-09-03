@@ -26,9 +26,7 @@ int brack(char *s)
             stk[0]--;                                                                                                               //if char is valid closing bracket and it matches our stk top, push off stack
         else if ((s[i] == ')' || s[i] == ']' || s[i] == '}') && !stk[0])                                                            //not really happy how i did this cause i test if it is a valid closing bracket twice but it looks good and im too lazy to find a good alternative
             return (0);                                                                                                             //if we have a closing bracket to an empty stk or wrong top its invalid
-    if (stk[0])                                                                                                                     //if theres something in the stack then its invalid
-        return (0);
-    return (1);                                                                                                                     //stack is empty
+    return ((stk[0]) ? 0 : 1)                                                                                                       //if theres something in the stack then its invalid
 }
 
 int main(int ac, char **av)
